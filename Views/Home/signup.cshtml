@@ -1,0 +1,20 @@
+﻿@model Cloud_A1.Models.userTable2
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
+@{
+}
+<h1>About</h1>
+<p>you need to sign up in the website for the application.</p>
+
+<body>
+    <form action="/User/AboutUs" method="post">
+        <p>Sign Up</p>
+        <input type="text" name="Name" placeholder="Name" required>
+        <input type="text" name="Surname" placeholder="Surname" required>
+        <input type="text" name="Email" placeholder="example@gmail.com" required>
+        <input type="text" name="Password" placeholder="yourpassword123" required>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+

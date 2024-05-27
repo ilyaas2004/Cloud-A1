@@ -19,6 +19,7 @@ namespace Cloud_A1
                 app.UseHsts();
             }
 
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

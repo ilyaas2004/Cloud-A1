@@ -12,7 +12,7 @@ namespace Cloud_A1.Controllers
         {
             _logger = logger;
         }
-
+      
         public IActionResult Index()
         {
             return View();
@@ -31,6 +31,10 @@ namespace Cloud_A1.Controllers
             return View();
         }
         public IActionResult MyWorkPage()
+        {
+            return View();
+        }
+        public IActionResult Signup()
         {
             return View();
         }

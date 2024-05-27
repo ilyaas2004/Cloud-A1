@@ -1,8 +1,71 @@
-﻿@{
+﻿
+@model int  // We only need to pass userID to this view
+
+@{
     ViewData["Title"] = "Home Page";
+    var user_ID = ViewData["userID"];
+    var products = ViewData["Products"] as List<Cloud_A1.Models.productTable1>;
 }
 
+
+
+<h2>Welcome to the Home Page!</h2>
+
+@if (user_ID != null)
+{
+    <p>User ID: @user_ID</p>
+}
+
+<h2>All Products</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Availability</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (products != null)
+        {
+            foreach (var product in products)
+            {
+                <!-- Render product details here -->
+      
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>@product.Category</td>
+                <td>@product.Availability</td>
+                <td>
+                    <form asp-controller="Transaction" asp-action="PlaceOrder" method="post">
+                        <input type="hidden" name="userID" value="@user_ID" />
+                        <input type="hidden" name="productID" value="@product.ProductID" />
+                        <button type="submit">Place Order</button>
+                    </form>
+                </td>
+            </tr>
+        }
+        }
+        
+        else
+        {
+        <p>No products available</p>
+        }
+    </tbody>
+</table>
+
+<link rel="stylesheet" type="text/css" href="~/css/site.css">
 <div class="text-center">
-    <h1 class="display-4" >Welcome to KhumaloCraft Emporium</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+   
+   
+   
+   
+  
+   
+
+   
 </div>
